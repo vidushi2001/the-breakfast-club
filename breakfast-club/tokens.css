@@ -1,0 +1,56 @@
+/* The Breakfast Club — Design tokens */
+
+:root {
+  /* Paper / surfaces */
+  --bc-paper: #fbf3e3;          /* warm cream paper */
+  --bc-paper-deep: #f4e9d2;     /* page edge / variant */
+  --bc-paper-shadow: #d9c9a8;   /* paper edge shadow */
+  --bc-card: #fffaf0;           /* recipe card surface */
+  --bc-card-edge: #e8d9b5;
+
+  /* Ink */
+  --bc-ink: #2a221a;            /* warm dark brown ink */
+  --bc-ink-soft: #5a4a38;       /* secondary ink */
+  --bc-ink-muted: #8a7960;      /* tertiary / hints */
+
+  /* Watercolor accents */
+  --bc-tomato: #d9472a;         /* tomato red */
+  --bc-coral: #e0848a;          /* soft coral / pink */
+  --bc-butter: #f0c987;         /* warm peach / butter */
+  --bc-sage: #9ec5ab;           /* sage green */
+  --bc-leaf: #7d9558;           /* deeper green */
+  --bc-sky: #b6cfd9;            /* watercolor blue */
+  --bc-terracotta: #d99066;     /* terracotta */
+  --bc-yolk: #f2b85a;           /* egg yolk yellow */
+  --bc-plum: #8a4a78;           /* purple onion */
+
+  /* Type */
+  --bc-font-script:  "Allura", "Sacramento", "Brush Script MT", cursive;   /* flowing script for big titles */
+  --bc-font-display: "Caveat", "Kalam", cursive;                            /* handwritten display */
+  --bc-font-hand:    "Patrick Hand", "Kalam", cursive;                       /* body handwriting */
+  --bc-font-label:   "Patrick Hand SC", "Caveat", cursive;                  /* small-caps labels */
+  --bc-font-body:    "Cormorant Garamond", Georgia, serif;
+  --bc-font-ui:      "Patrick Hand", system-ui, sans-serif;
+
+  /* Spacing scale (8pt rhythm) */
+  --bc-space-1: 4px;
+  --bc-space-2: 8px;
+  --bc-space-3: 12px;
+  --bc-space-4: 16px;
+  --bc-space-5: 24px;
+  --bc-space-6: 32px;
+  --bc-space-7: 48px;
+  --bc-space-8: 64px;
+
+  /* Radii */
+  --bc-radius-sm: 6px;
+  --bc-radius-md: 14px;
+  --bc-radius-lg: 24px;
+  --bc-radius-card: 18px;
+
+  /* Shadows / paper */
+  --bc-shadow-card: 0 8px 24px -10px rgba(80, 60, 30, 0.25),
+                    0 1px 2px rgba(80, 60, 30, 0.08);
+  --bc-shadow-soft: 0 2px 6px rgba(80, 60, 30, 0.10);
+  --bc-shadow-lift: 0 18px 40px -16px rgba(80, 60, 30, 0.32);
+}

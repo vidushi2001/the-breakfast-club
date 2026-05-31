@@ -1,0 +1,16 @@
+{
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
+  "framework": null,
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/breakfast-club/(.*\\.jsx)",
+      "headers": [
+        { "key": "Content-Type", "value": "text/javascript" }
+      ]
+    }
+  ]
+}

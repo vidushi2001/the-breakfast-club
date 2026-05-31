@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=Patrick+Hand+SC&family=Kalam:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+@import url("./tokens.css");
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ede0c4;
+  color: var(--bc-ink);
+  font-family: var(--bc-font-ui);
+  min-height: 100vh;
+}
+
+/* ------ Paper texture ------ */
+.bc-paper {
+  position: relative;
+  background-color: var(--bc-paper);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(217, 144, 102, 0.06) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 32%, rgba(189, 143, 76, 0.05) 0 1px, transparent 2px),
+    radial-gradient(circle at 30% 70%, rgba(160, 120, 60, 0.04) 0 1px, transparent 2px),
+    radial-gradient(circle at 60% 88%, rgba(160, 120, 60, 0.05) 0 1px, transparent 2px),
+    linear-gradient(180deg, #fbf3e3 0%, #f6ecd4 100%);
+}
+.bc-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.42  0 0 0 0 0.22  0 0 0 0.12 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Optional graph paper grid (subtle) */
+.bc-grid {
+  background-image:
+    linear-gradient(rgba(184, 138, 80, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 138, 80, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ------ Typography ------ */
+.bc-script {
+  font-family: var(--bc-font-script);
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: var(--bc-ink);
+  line-height: 0.95;
+}
+/* legacy alias */
+.bc-display { font-family: var(--bc-font-display); font-weight: 700; color: var(--bc-ink); line-height: 0.95; }
+.bc-hand {
+  font-family: var(--bc-font-hand);
+  color: var(--bc-ink);
+  letter-spacing: 0.2px;
+}
+.bc-label {
+  font-family: var(--bc-font-label);
+  letter-spacing: 1px;
+  color: var(--bc-ink);
+}
+.bc-body {
+  font-family: var(--bc-font-body);
+  color: var(--bc-ink);
+}
+.bc-ui {
+  font-family: var(--bc-font-ui);
+  color: var(--bc-ink);
+}
+
+/* Underline that looks like a pen swoop */
+.bc-underline {
+  position: relative;
+  display: inline-block;
+}
+.bc-underline::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: -8px;
+  height: 8px;
+  background: no-repeat center/100% 100%
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 7 Q 40 2 100 6 T 198 4' fill='none' stroke='%23d9472a' stroke-width='2.4' stroke-linecap='round'/></svg>");
+  opacity: 0.85;
+}
+.bc-underline.sage::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 7 Q 40 2 100 6 T 198 4' fill='none' stroke='%237d9558' stroke-width='2.4' stroke-linecap='round'/></svg>");
+}
+.bc-underline.ink::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 7 Q 40 2 100 6 T 198 4' fill='none' stroke='%232a221a' stroke-width='2' stroke-linecap='round'/></svg>");
+}
+
+/* ------ Buttons ------ */
+.bc-btn {
+  font-family: var(--bc-font-hand);
+  font-weight: 700;
+  font-size: 20px;
+  padding: 14px 28px;
+  background: var(--bc-card);
+  color: var(--bc-ink);
+  border: 1.5px solid var(--bc-ink);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--bc-shadow-soft);
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  position: relative;
+}
+.bc-btn:hover { transform: translateY(-2px); box-shadow: var(--bc-shadow-card); }
+.bc-btn:active { transform: translateY(0); }
+
+.bc-btn.primary {
+  background: var(--bc-tomato);
+  color: #fffaf0;
+  border-color: #a8341f;
+}
+.bc-btn.sage {
+  background: var(--bc-leaf);
+  color: #fffaf0;
+  border-color: #4f6638;
+}
+.bc-btn.ghost {
+  background: transparent;
+  border-style: dashed;
+}
+
+/* ------ Input chips / fields ------ */
+.bc-input {
+  font-family: var(--bc-font-hand);
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--bc-ink);
+  padding: 6px 4px;
+  color: var(--bc-ink);
+  outline: none;
+  width: 100%;
+}
+.bc-input::placeholder { color: var(--bc-ink-muted); }
+
+.bc-card {
+  background: var(--bc-card);
+  border: 1px solid var(--bc-card-edge);
+  border-radius: var(--bc-radius-card);
+  box-shadow: var(--bc-shadow-card);
+  position: relative;
+}
+
+/* Torn / deckle edge for paper bits — using SVG mask */
+.bc-deckle {
+  --d: 6px;
+  -webkit-mask-image:
+    radial-gradient(circle at 50% 0, transparent var(--d), #000 calc(var(--d) + 0.6px)),
+    radial-gradient(circle at 50% 100%, transparent var(--d), #000 calc(var(--d) + 0.6px));
+}
+
+/* Tape strip */
+.bc-tape {
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.25));
+  border: 1px solid rgba(190, 165, 100, 0.35);
+  box-shadow: 0 2px 4px rgba(80,60,30,0.10);
+  width: 88px;
+  height: 22px;
+  position: absolute;
+  border-radius: 1px;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    180deg, rgba(255,255,255,0.6) 0 6px, rgba(255,255,255,0.3) 6px 12px
+  );
+}
+
+/* watercolor blob behind a thing */
+.bc-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar (light) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(122, 96, 60, 0.3); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ------ Animations ------ */
+@keyframes bc-fadeup {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bc-fade {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes bc-wobble {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%      { transform: rotate(1.5deg); }
+}
+@keyframes bc-steam {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  20%  { opacity: 0.8; }
+  100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
+}
+@keyframes bc-spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+.bc-fadeup { animation: bc-fadeup 360ms ease-out both; }
+.bc-fade   { animation: bc-fade 240ms ease-out both; }
+
+.bc-illus { display: inline-block; vertical-align: middle; }
+
+/* Top-of-page page edge (subtle 3D paper) */
+.bc-page-edge {
+  position: relative;
+}
+.bc-page-edge::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -8px;
+  height: 12px;
+  background: linear-gradient(180deg, rgba(80,60,30,0.10), transparent);
+  pointer-events: none;
+}
